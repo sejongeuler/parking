@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>제8회 수학 탐구발표대회 주차 안내</title>
+<meta name="description" content="세종중학교 주차장은 이용할 수 없습니다. 교리3공영주차장에 주차한 뒤 센터입구로 걸어오세요. 학생 하차는 새내로 센터입구 앞에서 가능합니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="제8회 수학 탐구발표대회 주차 안내">
+<meta property="og:description" content="세종중학교 주차장은 이용할 수 없습니다. 교리3공영주차장에 주차한 뒤 센터입구로 걸어오세요. 학생 하차는 새내로 센터입구 앞에서 가능합니다.">
+<meta property="og:image" content="https://sejongeuler.github.io/math/parking-map.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@800&family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<style>
+/* Layout: one narrow column read on a phone; the walking steps are drawn as the same blue route as the map (P → 후문 앞 → 센터입구) */
+:root{
+  --bg:#F1F6FA;
+  --surface:#FFFFFF;
+  --ink:#10243F;
+  --muted:#56677B;
+  --line:#D4E1EA;
+  --route:#00AEF0;
+  --route-halo:rgba(0,174,240,.26);
+  --map-route:#00AEF0;
+  --accent:#003E92;
+  --chip-bg:#003E92;
+  --chip-ink:#FFFFFF;
+  --btn-bg:#FFFFFF;
+  --btn-ink:#003E92;
+  --btn-line:#BCD0DF;
+  --addr-bg:#EAF3F8;
+  --warn-bg:#FCEDE8;
+  --warn-line:#F0C3B6;
+  --warn-ink:#A3301C;
+  --overlay:#09121C;
+  --overlay-ink:#F3F7FB;
+  --overlay-line:rgba(243,247,251,.35);
+  --font-display:"Gothic A1","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  --font-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1520; --surface:#122130; --ink:#E4ECF4; --muted:#9BACBE; --line:#253A4E;
+    --route:#2BBCF3; --route-halo:rgba(43,188,243,.28); --accent:#8FB9FF;
+    --chip-bg:#1E50A8; --chip-ink:#FFFFFF;
+    --btn-bg:#162839; --btn-ink:#D3E4FF; --btn-line:#30495F; --addr-bg:#183044;
+    --warn-bg:#3A1D18; --warn-line:#6A3226; --warn-ink:#FFB2A1;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1520; --surface:#122130; --ink:#E4ECF4; --muted:#9BACBE; --line:#253A4E;
+  --route:#2BBCF3; --route-halo:rgba(43,188,243,.28); --accent:#8FB9FF;
+  --chip-bg:#1E50A8; --chip-ink:#FFFFFF;
+  --btn-bg:#162839; --btn-ink:#D3E4FF; --btn-line:#30495F; --addr-bg:#183044;
+  --warn-bg:#3A1D18; --warn-line:#6A3226; --warn-ink:#FFB2A1;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:1rem;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere;-webkit-text-size-adjust:100%}
+.wrap{max-width:34rem;margin:0 auto;padding-inline:16px;padding-block:28px 44px;display:grid;gap:22px}
+.top{display:grid;gap:6px}
+.eyebrow{margin:0;font-size:.875rem;font-weight:700;letter-spacing:.02em;color:var(--accent)}
+h1{margin:0;font-family:var(--font-display);font-weight:800;font-size:2.125rem;line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+.venue{margin:0;color:var(--muted);font-size:.9375rem}
+.notice{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:center;padding:14px 16px;border-radius:14px;background:var(--warn-bg);border:1px solid var(--warn-line)}
+.notice svg{width:40px;height:40px;display:block}
+.notice p{margin:0;display:grid;gap:2px;min-width:0}
+.notice strong{color:var(--warn-ink);font-size:1.0625rem;line-height:1.45;text-wrap:balance}
+.notice span{font-size:.9375rem}
+.map{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.map-btn{display:block;width:100%;padding:0;border:0;background:#FFFFFF;cursor:zoom-in}
+.map-btn img{display:block;width:100%;height:auto}
+.map-btn:focus-visible{outline:3px solid var(--route);outline-offset:-3px}
+.map figcaption{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;padding:10px 12px 10px 14px;border-top:1px solid var(--line);font-size:.875rem;color:var(--muted)}
+.legend{display:inline-flex;align-items:center;gap:8px;min-width:0}
+.legend i{flex:none;width:22px;height:4px;border-radius:2px;background:var(--map-route)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 16px 20px;display:grid;gap:16px}
+h2{margin:0;font-size:1.1875rem;line-height:1.35;font-weight:700}
+h3{margin:0;font-size:1.0625rem;line-height:1.4;font-weight:700}
+.route{list-style:none;margin:0;padding:0}
+.stop{position:relative;display:grid;grid-template-columns:36px minmax(0,1fr);column-gap:14px;padding-bottom:22px}
+.stop:last-child{padding-bottom:0}
+.stop:not(:last-child)::before{content:"";position:absolute;left:16px;top:18px;bottom:-18px;width:4px;border-radius:2px;background:var(--route)}
+.mk{position:relative;z-index:1;width:36px;height:36px;display:grid;place-items:center}
+.mk-p{border-radius:9px;background:var(--route);color:#FFFFFF;font-family:var(--font-display);font-weight:800;font-size:1.25rem;line-height:1}
+.mk-dot::after{content:"";width:18px;height:18px;border-radius:50%;background:var(--surface);border:4px solid var(--route);box-sizing:border-box}
+.mk-goal{border-radius:50%;background:var(--route);box-shadow:0 0 0 5px var(--route-halo)}
+.mk-goal svg{width:12px;height:10px;display:block;margin-top:2px}
+.stop-body{min-width:0;padding-top:6px;display:grid;gap:4px}
+.stop-body p{margin:0;color:var(--muted);font-size:.9375rem}
+.addr-row{margin-top:6px;display:flex;align-items:center;gap:8px;padding:8px 8px 8px 12px;border-radius:10px;background:var(--addr-bg)}
+.addr{flex:1;min-width:0;color:var(--ink);font-weight:600;font-size:1rem;line-height:1.45;-webkit-user-select:all;user-select:all}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 14px;border-radius:10px;border:1px solid var(--btn-line);background:var(--btn-bg);color:var(--btn-ink);font:inherit;font-weight:600;font-size:.9375rem;line-height:1;text-decoration:none;cursor:pointer}
+.btn svg{width:16px;height:16px;flex:none}
+.btn-sm{min-height:36px;padding:0 12px;font-size:.875rem}
+.actions.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.actions.two .btn{justify-content:center}
+.addr-row .btn{flex:none}
+.btn:focus-visible,.vclose:focus-visible{outline:3px solid var(--route);outline-offset:2px}
+.chip{display:inline-flex;align-items:center;gap:7px;width:fit-content;padding:6px 13px 6px 11px;border-radius:999px;background:var(--chip-bg);color:var(--chip-ink);font-weight:700;font-size:.9375rem;line-height:1.2}
+.chip svg{width:17px;height:15px;display:block}
+.chip .cut{fill:var(--chip-bg)}
+.drop p{margin:0;color:var(--ink)}
+.sub{margin:0;font-size:.875rem;font-weight:600;color:var(--muted)}
+.foot{margin:0;padding-inline:2px;color:var(--muted);font-size:.875rem}
+.viewer{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;background:var(--overlay);color:var(--overlay-ink)}
+.viewer-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(8px + env(safe-area-inset-top, 0px)) 16px 8px}
+.viewer-bar b{font-weight:700}
+.vclose{min-height:42px;padding:0 16px;border-radius:10px;border:1px solid var(--overlay-line);background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer}
+.vscroll{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;display:flex}
+.vscroll img{display:block;width:947px;max-width:none;height:auto;margin:auto;background:#FFFFFF}
+.vhint{margin:0;padding:8px 16px calc(12px + env(safe-area-inset-bottom, 0px));text-align:center;font-size:.8125rem;opacity:.8}
+@media (min-width:640px){h1{font-size:2.5rem}.wrap{padding-block:40px 56px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <p class="eyebrow">제8회 수학 탐구발표대회</p>
+    <h1>주차 안내</h1>
+    <p class="venue">대회장 세종수학체험센터 · 새내로 센터입구</p>
+  </header>
+
+  <div class="notice" role="note">
+    <svg viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="17" fill="none" stroke="var(--warn-ink)" stroke-width="3.2"/>
+      <text x="20" y="27" text-anchor="middle" font-family="Gothic A1, Apple SD Gothic Neo, Malgun Gothic, sans-serif" font-weight="800" font-size="20" fill="var(--warn-ink)">P</text>
+      <line x1="8.5" y1="31.5" x2="31.5" y2="8.5" stroke="var(--warn-ink)" stroke-width="3.2" stroke-linecap="round"/>
+    </svg>
+    <p><strong>세종중학교 주차장은 이용할 수 없습니다.</strong><span>자가용은 교리3공영주차장에 주차해 주세요.</span></p>
+  </div>
+
+  <figure class="map">
+    <button class="map-btn" type="button" id="mapThumb" data-open-map aria-label="주차 안내도 크게 보기">
+      <img src="parking-map.png" width="947" height="464" alt="주차 안내도. 교리3공영주차장에서 후문 앞을 지나 학교 담장 바깥 길과 새내로를 따라 센터입구까지 파란 선으로 걷는 길이 표시되어 있고, 센터입구에 학생 하차 가능 표시가 있습니다.">
+    </button>
+    <figcaption>
+      <span class="legend"><i></i>파란 선이 주차장에서 센터입구까지 걷는 길입니다.</span>
+      <button class="btn btn-sm" type="button" id="mapZoom" data-open-map>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.4 10.4 14 14M7 5v4M5 7h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        크게 보기
+      </button>
+    </figcaption>
+  </figure>
+
+  <section class="card" aria-labelledby="h-car">
+    <h2 id="h-car">자가용으로 오실 때</h2>
+    <ol class="route">
+      <li class="stop">
+        <span class="mk mk-p" aria-hidden="true">P</span>
+        <div class="stop-body">
+          <h3>교리3공영주차장에 주차</h3>
+          <div class="addr-row">
+            <span class="addr" id="addr">세종특별자치시 조치원읍 교리 1-14</span>
+            <button class="btn btn-sm" type="button" id="copyAddr" aria-label="주소 복사">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.2" y="5.2" width="8.6" height="8.6" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.6 3.4V3a1.8 1.8 0 0 0-1.8-1.8H4A1.8 1.8 0 0 0 2.2 3v4.8A1.8 1.8 0 0 0 4 9.6h.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>복사</span>
+            </button>
+          </div>
+          <div class="actions two">
+            <a class="btn" href="https://map.kakao.com/link/search/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EC%A1%B0%EC%B9%98%EC%9B%90%EC%9D%8D%20%EA%B5%90%EB%A6%AC%201-14" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-4.6 5-8.6a5 5 0 1 0-10 0C3 10.4 8 15 8 15Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="6.4" r="1.7" fill="currentColor"/></svg>
+              카카오맵
+            </a>
+            <a class="btn" href="https://map.naver.com/p/search/%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C%20%EC%A1%B0%EC%B9%98%EC%9B%90%EC%9D%8D%20%EA%B5%90%EB%A6%AC%201-14" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-4.6 5-8.6a5 5 0 1 0-10 0C3 10.4 8 15 8 15Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="6.4" r="1.7" fill="currentColor"/></svg>
+              네이버 지도
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="stop">
+        <span class="mk mk-dot" aria-hidden="true"></span>
+        <div class="stop-body">
+          <h3>후문 앞을 지나 담장 바깥 길로</h3>
+          <p>주차장에서 나와 후문 앞을 지나, 학교 담장을 따라 새내로 쪽으로 걸어 주세요.</p>
+        </div>
+      </li>
+      <li class="stop">
+        <span class="mk mk-goal" aria-hidden="true"><svg viewBox="0 0 12 10"><path d="M1 1h10L6 9Z" fill="#FFFFFF"/></svg></span>
+        <div class="stop-body">
+          <h3>새내로 센터입구 도착</h3>
+          <p>새내로를 따라 내려오면 센터입구가 있습니다.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="card drop" aria-labelledby="h-drop">
+    <h2 id="h-drop">학생만 내려 주실 때</h2>
+    <span class="chip">
+      <svg viewBox="0 0 14 12" aria-hidden="true">
+        <path d="M2 5.2 3.5 1h7L12 5.2Z" fill="currentColor"/>
+        <rect x=".4" y="4.9" width="13.2" height="5.1" rx="1.3" fill="currentColor"/>
+        <rect x="1.1" y="9" width="2.6" height="2.9" rx=".8" fill="currentColor"/>
+        <rect x="10.3" y="9" width="2.6" height="2.9" rx=".8" fill="currentColor"/>
+        <path class="cut" d="M3.3 4.85 4.35 2.2h5.3l1.05 2.65Z"/>
+        <circle class="cut" cx="3" cy="7.35" r="1.15"/>
+        <circle class="cut" cx="11" cy="7.35" r="1.15"/>
+      </svg>
+      학생 하차 가능
+    </span>
+    <p>새내로 센터입구 앞에서 학생이 내릴 수 있습니다. 내려 준 뒤 기다리실 때는 교리3공영주차장을 이용해 주세요.</p>
+    <div>
+      <p class="sub">센터 위치 찾기</p>
+      <div class="actions two">
+        <a class="btn" href="https://map.kakao.com/link/search/%EC%84%B8%EC%A2%85%EC%88%98%ED%95%99%EC%B2%B4%ED%97%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-4.6 5-8.6a5 5 0 1 0-10 0C3 10.4 8 15 8 15Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="6.4" r="1.7" fill="currentColor"/></svg>
+          카카오맵
+        </a>
+        <a class="btn" href="https://map.naver.com/p/search/%EC%84%B8%EC%A2%85%EC%88%98%ED%95%99%EC%B2%B4%ED%97%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-4.6 5-8.6a5 5 0 1 0-10 0C3 10.4 8 15 8 15Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="6.4" r="1.7" fill="currentColor"/></svg>
+          네이버 지도
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">대회 당일에는 주변 도로가 붐빌 수 있으니 시간 여유를 두고 와 주세요.</p>
+</main>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="주차 안내도 크게 보기" hidden>
+  <div class="viewer-bar">
+    <b>주차 안내도</b>
+    <button class="vclose" type="button" id="closeMap">닫기</button>
+  </div>
+  <div class="vscroll" id="vscroll">
+    <img src="parking-map.png" width="947" height="464" alt="주차 안내도 원본 크기">
+  </div>
+  <p class="vhint">손가락으로 밀어서 지도를 옮겨 볼 수 있습니다.</p>
+</div>
+
+<script>
+(function(){
+  var addr=document.getElementById('addr');
+  var copyBtn=document.getElementById('copyAddr');
+  var copyLabel=copyBtn.querySelector('span');
+  var timer=null;
+  function say(msg){
+    copyLabel.textContent=msg;
+    clearTimeout(timer);
+    timer=setTimeout(function(){copyLabel.textContent='복사';},2400);
+  }
+  function selectAddr(){
+    try{
+      var r=document.createRange();r.selectNodeContents(addr);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+    }catch(e){}
+    say('선택됨');
+  }
+  copyBtn.addEventListener('click',function(){
+    var text=addr.textContent.trim();
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){say('복사됨');},selectAddr);
+      }else{selectAddr();}
+    }catch(e){selectAddr();}
+  });
+
+  var viewer=document.getElementById('viewer');
+  var vs=document.getElementById('vscroll');
+  var closeBtn=document.getElementById('closeMap');
+  var lastFocus=null;
+  function openMap(){
+    lastFocus=document.activeElement;
+    viewer.hidden=false;
+    document.documentElement.style.overflow='hidden';
+    requestAnimationFrame(function(){
+      vs.scrollLeft=Math.max(0,425-vs.clientWidth/2);
+      vs.scrollTop=Math.max(0,(vs.scrollHeight-vs.clientHeight)/2);
+      closeBtn.focus();
+    });
+  }
+  function closeMap(){
+    viewer.hidden=true;
+    document.documentElement.style.overflow='';
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  var openers=document.querySelectorAll('[data-open-map]');
+  for(var i=0;i<openers.length;i++)openers[i].addEventListener('click',openMap);
+  closeBtn.addEventListener('click',closeMap);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!viewer.hidden)closeMap();});
+})();
+</script>
+</body>
+</html>
